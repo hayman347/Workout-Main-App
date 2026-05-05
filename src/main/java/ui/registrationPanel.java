@@ -27,29 +27,35 @@ public class registrationPanel extends javax.swing.JPanel {
     public registrationPanel() {
         initComponents();
         bigdawgButton.addItemListener(e -> {
-            if (e.getStateChange() == ItemEvent.SELECTED) {
+    if (e.getStateChange() == ItemEvent.SELECTED) {
 
-                ImageIcon rawIcon = new ImageIcon(
-                        getClass().getResource("/images/buff-chihuahua.png")
-                );
+        java.net.URL url = getClass().getResource("/images/buff-chihuahua.png");
 
-                Image scaledImage = rawIcon.getImage().getScaledInstance(
-                        300, 300, 
-                        Image.SCALE_SMOOTH
-                );
+        if (url == null) {
+            System.out.println("IMAGE NOT FOUND");
+            JOptionPane.showMessageDialog(this, "Image not found");
+            return;
+        }
 
-                ImageIcon icon = new ImageIcon(scaledImage);
-                
+        ImageIcon rawIcon = new ImageIcon(url);
 
-            JOptionPane.showMessageDialog(
-                        this,
-                        "Pick an actual gender.",
-                        "Dis You?",
-                        JOptionPane.INFORMATION_MESSAGE,
-                        icon
-                );
-            }
-        });
+        Image scaledImage = rawIcon.getImage().getScaledInstance(
+                300, 300,
+                Image.SCALE_SMOOTH
+        );
+
+        ImageIcon icon = new ImageIcon(scaledImage);
+
+        JOptionPane.showMessageDialog(
+                this,
+                "Pick an actual gender.",
+                "Dis You?",
+                JOptionPane.INFORMATION_MESSAGE,
+                icon
+        );
+    }
+});
+        
     }
 
     /**
