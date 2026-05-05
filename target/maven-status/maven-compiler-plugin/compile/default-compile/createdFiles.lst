@@ -10,7 +10,6 @@ workoutlistPanels/armPanel$1.class
 ui/workoutlistFrame.class
 ui/loginFrame.class
 ui/registrationPanel.class
-ai/GeminiApp.class
 ui/workoutlogPanel.class
 ui/homeFrame.class
 workoutlistPanels/chestPanel.class
