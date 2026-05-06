@@ -28,10 +28,7 @@ public class workoutlogPanel extends javax.swing.JPanel {
     /**
      * Creates new form workoutlogPanel
      */
-    public workoutlogPanel() {
-
-        initComponents();
-    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -144,7 +141,7 @@ public class workoutlogPanel extends javax.swing.JPanel {
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         // TODO add your handling code here:
 
-        homeFrame home = new homeFrame();
+        homeFrame home = new homeFrame(userId);
         home.setVisible(true);
 
         JFrame currentFrame = (JFrame) SwingUtilities.getWindowAncestor(this);
@@ -166,7 +163,7 @@ public class workoutlogPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "All fields must be filled.");
             return;
         }
-        if (userId == 0) {
+        if (userId <= 0) {
             JOptionPane.showMessageDialog(this, "User not logged in properly.");
             return;
         }

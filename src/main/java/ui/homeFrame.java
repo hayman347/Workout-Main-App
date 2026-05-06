@@ -12,6 +12,7 @@ import javax.swing.JFrame;
 public class homeFrame extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(homeFrame.class.getName());
+    
     private int userId;
 
     public homeFrame(int userId) {
@@ -21,9 +22,6 @@ public class homeFrame extends javax.swing.JFrame {
     /**
      * Creates new form homeFrame
      */
-    public homeFrame() {
-        initComponents();
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -138,7 +136,7 @@ public class homeFrame extends javax.swing.JFrame {
     private void genweekButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_genweekButtonActionPerformed
         // TODO add your handling code here:
         JFrame frame = new JFrame("Workout Generator");
-        frame.setContentPane(new weeklyplanPanel());
+        frame.setContentPane(new weeklyplanPanel(userId));
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -189,7 +187,7 @@ public class homeFrame extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new homeFrame().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new homeFrame(1).setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

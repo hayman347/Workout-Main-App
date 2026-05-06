@@ -4,16 +4,17 @@
  */
 package ui;
 
-import database.*;
+import database.databaseManager;
 import java.awt.Image;
 import java.awt.event.ItemEvent;
 
-import java.io.ObjectInputFilter.Config;
 import java.sql.Connection;
-import javax.swing.JOptionPane;
+import java.sql.Date;
 import java.sql.PreparedStatement;
+import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
 import javax.swing.SwingUtilities;
+import java.text.SimpleDateFormat;
 
 /**
  *
@@ -220,17 +221,17 @@ public class registrationPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "DOB must be in format MM/DD/YYYY");
             return;
         }
-
-        String cleanDob = dobText.replace("/", "");
-
-        int dob;
+        Date dob;
         try {
-            dob = Integer.parseInt(cleanDob);
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "Invalid DOB.");
+            java.util.Date utilDate =
+                    new SimpleDateFormat("MM/dd/yyyy").parse(dobText);
+
+            dob = new java.sql.Date(utilDate.getTime());
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Invalid DOB format");
             return;
         }
-
         try {
             Connection conn = databaseManager.getConnection();
 
@@ -242,7 +243,7 @@ public class registrationPanel extends javax.swing.JPanel {
             stmt.setString(2, firstname);
             stmt.setString(3, lastname);
             stmt.setString(4, password);
-            stmt.setInt(5, dob);
+            stmt.setDate(5, dob);
             stmt.setString(6, gender);
 
             stmt.executeUpdate();

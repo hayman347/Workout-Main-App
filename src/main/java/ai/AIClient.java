@@ -5,7 +5,7 @@ import com.google.genai.types.GenerateContentResponse;
 
 public class AIClient {
 
-    private static final String API_KEY = "AIzaSyCR7pPa84H6NON8BfPzCf1_2aYUbSnVZjk";
+        private static final String API_KEY = "oijoij";
 
    
     public static String sendPrompt(String prompt) throws Exception {

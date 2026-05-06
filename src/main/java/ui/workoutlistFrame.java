@@ -18,8 +18,10 @@ public class workoutlistFrame extends javax.swing.JFrame {
     /**
      * Creates new form workoutlistFrame
      */
+    private int userId;
     public workoutlistFrame() {
         initComponents();
+        this.userId = userId;
     }
 
     /**
@@ -152,7 +154,7 @@ public class workoutlistFrame extends javax.swing.JFrame {
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         // TODO add your handling code here:
-        homeFrame home = new homeFrame();
+        homeFrame home = new homeFrame(userId);
         home.setVisible(true);
 
     this.dispose();

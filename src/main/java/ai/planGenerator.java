@@ -89,7 +89,8 @@ public class planGenerator {
                 FINAL RULE
                 ----------------------------
 
-                The plan must be realistic, sustainable, and optimized for long-term progress.
+                The plan must be realistic, sustainable, and optimized for long-term progress. Don't inclue * for it isn't bulky. Make it 
+                look clean and pretty to the eyes. Nothing extra but straight to the point.
                 """,
                 dob,
                 gender,

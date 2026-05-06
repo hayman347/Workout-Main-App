@@ -6,6 +6,7 @@ package ui;
 
 import ai.AIClient;
 import ai.planGenerator;
+import database.UserData;
 
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
@@ -24,11 +25,14 @@ public class weeklyplanPanel extends javax.swing.JPanel {
     /**
      * Creates new form weeklyplanPanel
      */
-    public weeklyplanPanel() {
+    private int userId;
+
+    public weeklyplanPanel(int userID) {
         initComponents();
         jTextArea1.setLineWrap(true);
         jTextArea1.setWrapStyleWord(true);
         jTextArea1.setEditable(false);
+        this.userId = userId;
 
     }
 
@@ -122,7 +126,7 @@ public class weeklyplanPanel extends javax.swing.JPanel {
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         // TODO add your handling code here:
-        homeFrame home = new homeFrame();
+        homeFrame home = new homeFrame(userId);
         home.setVisible(true);
 
         JFrame currentFrame = (JFrame) SwingUtilities.getWindowAncestor(this);
@@ -134,19 +138,15 @@ public class weeklyplanPanel extends javax.swing.JPanel {
         try {
             // Example user data
             // Replace these later with values from your database or input fields
-            String dob = "2004-06-12";
-            String sex = "Male";
-            double height = 180.0;
-            double weight = 175.0;
-            String trainingStyle = "Hybrid";
+        String dob = database.UserData.getDOB(userId);
+        String sex = database.UserData.getGender(userId);
+        double height = database.UserData.getHeight(userId);
+        double weight = database.UserData.getWeight(userId);
+        
+        String workoutHistory = UserData.getWorkoutHistory(userId);
+        String trainingStyle = "Hybrid";
 
-            // Example workout history
-            // Replace with real data from your database
-            String workoutHistory
-                    = """
-                      (Bench Press, 4, 185, 8, 7, 2026-04-25)
-                      (Back Squat, 5, 225, 5, 8, 2026-04-23)
-                      (Deadlift, 3, 315, 5, 9, 2026-04-21)""";
+            
 
             // Generate the AI prompt
             String prompt = planGenerator.generatePrompt(
