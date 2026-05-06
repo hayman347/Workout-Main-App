@@ -2,17 +2,10 @@ package ai;
 
 import com.google.genai.Client;
 import com.google.genai.types.GenerateContentResponse;
-import java.io.OutputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.nio.charset.StandardCharsets;
-import java.util.Scanner;
-import org.json.JSONArray;
-import org.json.JSONObject;
 
 public class AIClient {
 
-    private static final String API_KEY = "fghgf";
+    private static final String API_KEY = "AIzaSyCR7pPa84H6NON8BfPzCf1_2aYUbSnVZjk";
 
    
     public static String sendPrompt(String prompt) throws Exception {
